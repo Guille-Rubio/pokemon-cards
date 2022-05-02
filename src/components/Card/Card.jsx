@@ -9,20 +9,6 @@ function Card() {
   const [input, setInput] = useState("");
   const [pokemon, setPokemon] = useState("")
 
-  /* const fetchData = async ()=>{
-    try {
-      const request = await axios.get(`https://pokeapi.co/api/v2/pokemon/${input}`)
-      const result = await request.data.results
-      setPokemon(result)
-      
-      
-    } catch (err) {
-      console.log(err)
-    }
-  
-  } */
-
-
 
   useEffect(() => {
     if(input!==""){
