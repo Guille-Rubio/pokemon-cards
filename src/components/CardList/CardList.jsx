@@ -3,15 +3,10 @@ import axios from "axios";
 import Pokemon from '../Card/Pokemon/Pokemon';
 import { v4 as uuidv4 } from 'uuid';
 
-
-
 function CardList() {
 
   const [input, setInput] = useState("");
   const [pokemon, setPokemon] = useState([])
-
-
- 
 
   useEffect(() => {
     if (input !== "") {
@@ -33,17 +28,11 @@ function CardList() {
   }, [input]
   )
 
-
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setInput(event.target.input.value)
     event.target.input.value = ""
   }
-
-
-
-
 
   return <div className="card-list">
     <form onSubmit={handleSubmit}>

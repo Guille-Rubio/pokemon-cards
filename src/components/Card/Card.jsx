@@ -2,41 +2,34 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pokemon from './Pokemon/Pokemon';
 
-
-
 function Card() {
 
   const [input, setInput] = useState("");
   const [pokemon, setPokemon] = useState("")
 
-
   useEffect(() => {
-    if(input!==""){
-    async function fetchData() {
-      try {
-        const request = await axios.get(`https://pokeapi.co/api/v2/pokemon/${input}`)
-        const result = await request.data
-        setPokemon(result)
-      } catch (err) {
-        console.log(err)
-        if(err.code==='ERR_BAD_REQUEST'){
-          alert("There is no pokemon saved with that name")
+    if (input !== "") {
+      async function fetchData() {
+        try {
+          const request = await axios.get(`https://pokeapi.co/api/v2/pokemon/${input}`)
+          const result = await request.data
+          setPokemon(result)
+        } catch (err) {
+          console.log(err)
+          if (err.code === 'ERR_BAD_REQUEST') {
+            alert("There is no pokemon saved with that name")
+          }
         }
       }
+      fetchData()
     }
-    fetchData()
-  }}, [input]
+  }, [input]
   )
-
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setInput(event.target.input.value)
   }
-
-
-  
-
 
   return <div>
     <form onSubmit={handleSubmit}>
@@ -44,8 +37,8 @@ function Card() {
       <button type="submit">Search</button>
     </form>
     {pokemon
-    ?<Pokemon value={pokemon}/>
-    :""
+      ? <Pokemon value={pokemon} />
+      : ""
 
     }
 
