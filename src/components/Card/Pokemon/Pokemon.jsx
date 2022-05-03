@@ -6,12 +6,11 @@ function Pokemon(props) {
 
   const image = props.value.sprites.other.dream_world.front_default;
 
-  return <div>
-    <p>{name}</p>
+  return <div className="pokemon_card">
+    <h1>{name}</h1>
     <p>#{order}</p>
     <img src={image} alt={"pokemon #" + order} />
     <p>weight:{weight}</p>
-    <p></p>
   </div>;
 }
 

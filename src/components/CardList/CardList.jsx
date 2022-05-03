@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Pokemon from '../Card/Pokemon/Pokemon';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -9,6 +10,8 @@ function CardList() {
   const [input, setInput] = useState("");
   const [pokemon, setPokemon] = useState([])
 
+
+ 
 
   useEffect(() => {
     if (input !== "") {
@@ -42,17 +45,18 @@ function CardList() {
 
 
 
-  return <div>
+  return <div className="card-list">
     <form onSubmit={handleSubmit}>
       <input type="text" name="input" placeholder="type in your pokemon" />
       <button type="submit">Search</button>
     </form>
-    {pokemon === []
-      ? ""
-      : pokemon.map(pokemon =>  <Pokemon value={pokemon} /> )
+    <div className="card-container">
+      {pokemon === []
+        ? ""
+        : pokemon.map(pokemon => <Pokemon value={pokemon} key={uuidv4()} />)
 
-    }
-
+      }
+    </div>
   </div>;
 
 }

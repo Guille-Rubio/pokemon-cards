@@ -1,5 +1,6 @@
-import './App.css';
-import Card from './components/Card'
+/* import './App.css'; */
+import '../src/styles/styles.scss';
+import Card from './components/Card';
 import CardList from './components/CardList/CardList';
 
 
