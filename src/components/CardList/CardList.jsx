@@ -30,7 +30,7 @@ function CardList() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    setInput(event.target.input.value)
+    setInput(event.target.input.value.toLowerCase())
     event.target.input.value = ""
   }
 
