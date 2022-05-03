@@ -25,7 +25,7 @@ function CardList() {
       }
       fetchData()
     }
-  }, [input]
+  }, [input] /* eslint-disable-line react-hooks/exhaustive-deps  */
   )
 
   const handleSubmit = async (event) => {
@@ -51,3 +51,4 @@ function CardList() {
 }
 
 export default CardList;
+
